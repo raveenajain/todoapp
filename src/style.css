@@ -2,37 +2,99 @@ body {
   margin: 0;
 }
 
+
+/* themes.js */
 #header {
   font-size: 100px;
   color: white;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  position: fixed;
+  width: 100%;
 }
 
+#theme {
+  float: right;
+  margin-right: 30px;
+  margin-top: 175px;
+  font-size: 20px;
+  position: relative;
+}
+
+
+/* app.js */
 #noTasks {
   font-size: 50px;
   color: black;
   text-align: center;
-  margin-top: 10%;
+  margin-top: 150px;
 }
 
-#topButtons {
-  margin-top: 2.5%;
-  font-size: 20px;
-}
 
-#add {
-  margin-left: 5%;
+/* add.js */
+#plusButton {
+  margin-left: 30px;
+  margin-top: 175px;
   border-radius: 10px;
-  font-size: inherit;
   width: 30px;
   background: white;
   box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
+  font-size: 20px;
+  position: relative;
+  border: 0.5px solid black;
 }
 
-#theme {
-  display: inline;
-  float: right;
-  margin-right: 5%;
+#popupGrey {
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#popup {
+  z-index: 15;
+  background-color: white;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  margin-top: 125px;
+  margin-left: 25%;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.35);
+  border: 1px solid black;
+}
+
+#close {
+  margin-left: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+  width: 5%;
+  float: left;
+}
+
+#questions {
+  width: 100%;
+  margin-top: 35px;
+}
+
+textarea {
+  margin-top: 10px;
+  width: 80%;
+  height: 50px;
+}
+
+#codeClassic, #codeExtreme, #codeCool, #codeWarm {
+  margin-top: 10px;
+}
+
+#addButton {
+  border-radius: 10px;
+  width: 60px;
+  font-size: 15px;
+  height: 30px; /* double the font-size */
+  background: white;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
+  border: 0.5px solid black;
+  margin-top: 35px;
 }
