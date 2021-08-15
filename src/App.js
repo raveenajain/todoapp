@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './style.css';
 import Themes from './Themes';
-import AddWindow from './AddWindow';
+import AddTasks from './AddTasks';
 
 function App() {
 
@@ -12,15 +12,11 @@ function App() {
       <Themes />
 
       {/* add tasks button and pop up*/}
-      <AddWindow />
+      <AddTasks />
 
-      {/* lists of tasks users will add*/}
-      <div id="tasks">
-        <div id="noTasks">
-          You have nothing to do...
-          <br></br>enjoy your free time!
-        </div>
-        <div id="newTasks"></div>
+      <div id="noTasks">
+        You have nothing to do...
+        <br></br>enjoy your free time!
       </div>
 
     </div>

@@ -28,48 +28,51 @@ function ColorCodes() {
     }
   });
 
-  function changeCode(event) {
+  function handleChange(event) {
     setCode(event.target.value);
   }
 
   return (
     <div className="ColorCodes">
+      <div id="curColor" value={code}>
 
-      <div id="codeClassic" style={{display: "block"}}>
-        <select value={code} name="code" onChange={changeCode}>
-          <option value="red">Red</option>
-          <option value="yellow">Yellow</option>
-          <option value="blue">Blue</option>
-        </select>
-      </div>
+        <div id="codeClassic" style={{display: "block"}}>
+          <select value={code} name="code" onChange={handleChange}>
+            <option value="classicRed">Red</option>
+            <option value="classicYellow">Yellow</option>
+            <option value="classicBlue">Blue</option>
+          </select>
+        </div>
 
-      <div id="codeExtreme" style={{display: "none"}}>
-        <select value={code} name="code" onChange={changeCode}>
-          <option value="red">Red</option>
-          <option value="orange">Orange</option>
-          <option value="pink">Pink</option>
-          <option value="purple">Purple</option>
-          <option value="blue">Blue</option>
-          <option value="green">Green</option>
-        </select>
-      </div>
+        <div id="codeExtreme" style={{display: "none"}}>
+          <select value={code} name="code" onChange={handleChange}>
+            <option value="extremeRed">Red</option>
+            <option value="extremeOrange">Orange</option>
+            <option value="extremePink">Pink</option>
+            <option value="extremePurple">Purple</option>
+            <option value="extremeBlue">Blue</option>
+            <option value="extremeGreen">Green</option>
+          </select>
+        </div>
 
-      <div id="codeCool" style={{display: "none"}}>
-        <select value={code} name="code" onChange={changeCode}>
-          <option value="purple">Purple</option>
-          <option value="lightPurple">Light Purple</option>
-          <option value="lightBlue">Light Blue</option>
-          <option value="blue">Blue</option>
-        </select>
-      </div>
+        <div id="codeCool" style={{display: "none"}}>
+          <select value={code} name="code" onChange={handleChange}>
+            <option value="coolPurple">Purple</option>
+            <option value="coolLightPurple">Light Purple</option>
+            <option value="coolLightBlue">Light Blue</option>
+            <option value="coolBlue">Blue</option>
+          </select>
+        </div>
 
-      <div id="codeWarm" style={{display: "none"}}>
-        <select value={code} name="code" onChange={changeCode}>
-          <option value="red">Red</option>
-          <option value="orange">Orange</option>
-          <option value="golden">Golden</option>
-          <option value="yellow">Yellow</option>
-        </select>
+        <div id="codeWarm" style={{display: "none"}}>
+          <select value={code} name="code" onChange={handleChange}>
+            <option value="warmRed">Red</option>
+            <option value="warmOrange">Orange</option>
+            <option value="warmGolden">Golden</option>
+            <option value="warmYellow">Yellow</option>
+          </select>
+        </div>
+
       </div>
 
     </div>
