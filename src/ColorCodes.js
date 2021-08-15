@@ -36,7 +36,7 @@ function ColorCodes() {
     <div className="ColorCodes">
       <div id="curColor" value={code}>
 
-        <div id="codeClassic" style={{display: "block"}}>
+        <div id="codeClassic" style={{display: "none"}}>
           <select value={code} name="code" onChange={handleChange}>
             <option value="classicRed">Red</option>
             <option value="classicYellow">Yellow</option>

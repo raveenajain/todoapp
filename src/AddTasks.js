@@ -29,8 +29,20 @@ function AddTasks() {
   }
 
   function translateColor() {
-    const code = document.getElementById("curColor").getAttribute("value");
-    let resultingColor = "#ff0000";
+    let resultingColor;
+    let code = document.getElementById("curColor").getAttribute("value");
+    if (code === null) {
+      let theme = document.getElementById('theme').getAttribute('value');
+      if (theme === "classic") {
+        code = "classicRed";
+      } else if (theme === "extreme") {
+        code = "extremeRed";
+      } else if (theme === "cool") {
+        code = "coolPurple";
+      } else if (theme === "warm") {
+        code = "warmRed";
+      }
+    }
     // classic
     if (code === "classicRed") {
       resultingColor = "#ff0000";
