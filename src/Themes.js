@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import './style.css';
+import changeExistingTaskColors from './ChangeExistingTaskColors';
 
 function Themes() {
   const[theme, setTheme] = useState("classic");
@@ -10,6 +11,7 @@ function Themes() {
     const {value} = event.target;
     setTheme(value);
     changeTheme(value);
+    changeExistingTaskColors(theme, value); // previous theme, new theme
   }
 
   // changes the color of the to do header
