@@ -4,6 +4,7 @@ import './style.css';
 function ColorCodes() {
   const[code, setCode] = useState();
 
+  // shows the correct dropdown options in the AddTask pop up window depending on the current theme
   useEffect(() => {
     if (document.getElementById('theme').getAttribute('value') === "classic") {
       document.getElementById('codeClassic').style.display = "block";

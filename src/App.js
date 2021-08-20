@@ -14,6 +14,7 @@ function App() {
       {/* add tasks button and pop up*/}
       <AddTasks />
 
+      {/* init main text */}
       <div id="noTasks">
         You have nothing to do...
         <br></br>enjoy your free time!

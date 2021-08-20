@@ -12,15 +12,18 @@ function AddTasks() {
     setTaskValue(event.target.value);
   }
 
+  // makes pop up window visible
   function openAddWindow() {
     setIsVisible("inline");
   }
 
+  // closes pop up window
   function closeAddWindow() {
     setIsVisible("none");
     setTaskValue("");
   }
 
+  // adds a label and input checkbox element to the form i.e. adds the users task
   function addTask() {
     // remove pop up window and init text
     setIsVisible("none");
@@ -54,6 +57,7 @@ function AddTasks() {
     setTaskValue("");
   }
 
+  // adds a strikethrough or line under task depending on if task is checked/completed
   function needStrikethrough(event) {
     const lineColor = translateColor();
     const input = event.target;
@@ -72,6 +76,8 @@ function AddTasks() {
     }
   }
 
+  // sets the color for the underline/strikethrough
+  // the options the user has to select depends on the current theme
   function translateColor() {
     let resultingColor;
     let code = document.getElementById("curColor").getAttribute("value");

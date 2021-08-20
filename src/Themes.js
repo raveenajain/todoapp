@@ -5,12 +5,14 @@ function Themes() {
   const[theme, setTheme] = useState("classic");
   const[headerBack, setHeaderBack] = useState("linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,230,0,1) 37%, rgba(224,208,65,1) 69%, rgba(15,48,255,1) 96%)");
 
+  // theme dropdown handler
   function handleChange(event) {
     const {value} = event.target;
     setTheme(value);
     changeTheme(value);
   }
 
+  // changes the color of the to do header
   function changeTheme(value) {
     // change header background
     if (value === "classic") {
