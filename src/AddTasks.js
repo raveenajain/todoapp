@@ -5,6 +5,8 @@ import ColorCodes from './ColorCodes';
 function AddTasks() {
   const[isVisible, setIsVisible] = useState("none");
   const[taskValue, setTaskValue] = useState("");
+  const[taskCounter, setTaskCounter] = useState(0); // to deal with edge case of repeat tasks
+  const[labelStyle] = useState('3px solid');
 
   function handleChange(event) {
     setTaskValue(event.target.value);
@@ -20,12 +22,54 @@ function AddTasks() {
   }
 
   function addTask() {
+    // remove pop up window and init text
     setIsVisible("none");
     document.getElementById('noTasks').style.display = "none";
-    document.getElementById('tasks').innerHTML +=
-      "<label style='border-bottom: 3px solid" + translateColor() + "'> <input type='checkbox' multiple={true} value={taskValue} onChange={handleChange} />"
-      + taskValue + "</label><br></br>"
+    // add to task counter
+    let tempTaskCounter = taskCounter;
+    tempTaskCounter++;
+    setTaskCounter(tempTaskCounter);
+    // create label element
+    let newLabel = document.createElement('label');
+    newLabel.id = taskValue + taskCounter;
+    newLabel.style.borderBottom = labelStyle + translateColor();
+    // create input element
+    let newInput = document.createElement('input');
+    newInput.id = "input" + taskValue + taskCounter;
+    newInput.type = 'checkbox';
+    // create task div text element
+    let newTaskDiv = document.createElement('div');
+    newTaskDiv.id = 'taskText'; // styling in .css file
+    newTaskDiv.innerHTML = taskValue;
+    newTaskDiv.style.display = 'inline';
+    // create line break element
+    let brk = document.createElement('br');
+    // append all elements
+    newLabel.appendChild(newInput);
+    newLabel.appendChild(newTaskDiv);
+    newLabel.appendChild(brk);
+    document.getElementById('tasks').appendChild(newLabel);
+    document.getElementById('input' + taskValue + taskCounter).addEventListener('change', needStrikethrough);
+    // reset task value for pop up window
     setTaskValue("");
+  }
+
+  function needStrikethrough(event) {
+    const lineColor = translateColor();
+    const input = event.target;
+    const labelID = input.id.substring(5); // remove chars 'input' from "input" + taskValue id
+    let curLabel = document.getElementById(labelID);
+    let labelText = curLabel.children[1];
+    if (input.checked) {
+      curLabel.style.borderBottom = '0px';
+      curLabel.style.textDecoration = 'line-through';
+      curLabel.style.textDecorationColor = lineColor;
+      labelText.style.color = 'rgba(0, 0, 0, 0.5)';
+    } else {
+      curLabel.style.borderBottom = labelStyle + lineColor;
+      curLabel.style.textDecoration = 'none';
+      labelText.style.color = 'rgba(0, 0, 0, 1)';
+    }
   }
 
   function translateColor() {
