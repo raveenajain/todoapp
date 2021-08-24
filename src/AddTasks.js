@@ -65,20 +65,22 @@ function AddTasks() {
     const labelID = input.id.substring(5); // remove chars 'input' from "input" + taskValue id
     let curLabel = document.getElementById(labelID);
     let labelText = curLabel.children[1];
+    let borderColor = curLabel.style.borderBottomColor;
+    let decorationColor = curLabel.style.textDecorationColor;
     if (input.checked) {
       curLabel.style.borderBottom = '0px';
       curLabel.style.textDecoration = 'line-through';
-      curLabel.style.textDecorationColor = translateColor();
+      curLabel.style.textDecorationColor = borderColor;
       labelText.style.color = 'rgba(0, 0, 0, 0.5)';
     } else {
       curLabel.style.borderBottom = labelStyle;
-      curLabel.style.borderBottomColor = translateColor();
+      curLabel.style.borderBottomColor = decorationColor;
       curLabel.style.textDecoration = 'none';
       labelText.style.color = 'rgba(0, 0, 0, 1)';
     }
   }
 
-  // sets the color for the underline/strikethrough
+  // initially sets the color for the underline/strikethrough
   // the options the user has to select depends on the current theme
   function translateColor() {
     let resultingColor;
