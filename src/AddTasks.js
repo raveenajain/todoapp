@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './style.css';
 import ColorCodes from './ColorCodes';
+import globalColors from './GlobalColors';
 
 function AddTasks() {
   const[isVisible, setIsVisible] = useState("none");
@@ -35,7 +36,8 @@ function AddTasks() {
     // create label element
     let newLabel = document.createElement('label');
     newLabel.id = taskValue + taskCounter;
-    newLabel.style.borderBottom = labelStyle + translateColor();
+    newLabel.style.borderBottom = labelStyle;
+    newLabel.style.borderBottomColor = translateColor();
     // create input element
     let newInput = document.createElement('input');
     newInput.id = "input" + taskValue + taskCounter;
@@ -59,7 +61,6 @@ function AddTasks() {
 
   // adds a strikethrough or line under task depending on if task is checked/completed
   function needStrikethrough(event) {
-    const lineColor = translateColor();
     const input = event.target;
     const labelID = input.id.substring(5); // remove chars 'input' from "input" + taskValue id
     let curLabel = document.getElementById(labelID);
@@ -67,10 +68,11 @@ function AddTasks() {
     if (input.checked) {
       curLabel.style.borderBottom = '0px';
       curLabel.style.textDecoration = 'line-through';
-      curLabel.style.textDecorationColor = lineColor;
+      curLabel.style.textDecorationColor = translateColor();
       labelText.style.color = 'rgba(0, 0, 0, 0.5)';
     } else {
-      curLabel.style.borderBottom = labelStyle + lineColor;
+      curLabel.style.borderBottom = labelStyle;
+      curLabel.style.borderBottomColor = translateColor();
       curLabel.style.textDecoration = 'none';
       labelText.style.color = 'rgba(0, 0, 0, 1)';
     }
@@ -95,42 +97,42 @@ function AddTasks() {
     }
     // classic
     if (code === "classicRed") {
-      resultingColor = "#ff0000";
+      resultingColor = globalColors('classicRed');
     } else if (code === "classicYellow") {
-      resultingColor = "#ffe600";
+      resultingColor = globalColors('classicYellow');
     } else if (code === "classicBlue") {
-      resultingColor = "#0f2fff";
+      resultingColor = globalColors('classicBlue');
     } // extreme
     else if (code === "extremeRed") {
-      resultingColor = "#f83812";
+      resultingColor = globalColors('extremeRed');
     } else if (code === "extremeOrange") {
-      resultingColor = "#ee974b";
+      resultingColor = globalColors('extremeOrange');
     } else if (code === "extremePink") {
-      resultingColor = "#e6aace";
+      resultingColor = globalColors('extremePink');
     } else if (code === "extremePurple") {
-      resultingColor = "#6f58c9";
+      resultingColor = globalColors('extremePurple');
     } else if (code === "extremeBlue") {
-      resultingColor = "#51e5ff";
+      resultingColor = globalColors('extremeBlue');
     } else if (code === "extremeGreen") {
-      resultingColor = "#81f49a";
+      resultingColor = globalColors('extremeGreen');
     } // cool
     else if (code === "coolPurple") {
-      resultingColor = "#5f4f93";
+      resultingColor = globalColors('coolPurple');
     } else if (code === "coolLightPurple") {
-      resultingColor = "#d5d2ff";
+      resultingColor = globalColors('coolLightPurple');
     } else if (code === "coolLightBlue") {
-      resultingColor = "#cee4fd";
+      resultingColor = globalColors('coolLightBlue');
     } else if (code === "coolBlue") {
-      resultingColor = "#4d669c";
+      resultingColor = globalColors('coolBlue');
     } // warm
     else if (code === "warmRed") {
-      resultingColor = "#910000";
+      resultingColor = globalColors('warmRed');
     } else if (code === "warmOrange") {
-      resultingColor = "#d44e00";
+      resultingColor = globalColors('warmOrange');
     } else if (code === "warmGolden") {
-      resultingColor = "#ffb300";
+      resultingColor = globalColors('warmGolden');
     } else if (code === "warmYellow") {
-      resultingColor = "#ffe08a";
+      resultingColor = globalColors('warmYellow');
     }
     return resultingColor;
   }
