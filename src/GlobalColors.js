@@ -1,5 +1,3 @@
-import React, {useState} from "react";
-
 // to be able to consistently change colors used for the different themes across different .js files
 const globalColors = function(color) {
   const colorMap = new Map();
@@ -16,8 +14,8 @@ const globalColors = function(color) {
   colorMap.set('extremeBlue', 'rgb(81, 229, 255)');
 
   colorMap.set('coolPurple', 'rgb(95, 79, 147)');
-  colorMap.set('coolLightPurple', 'rgb(206, 228, 253)');
-  colorMap.set('coolLightBlue', 'rgb(213, 210, 255)');
+  colorMap.set('coolLightBlue', 'rgb(206, 228, 253)');
+  colorMap.set('coolLightPurple', 'rgb(213, 210, 255)');
   colorMap.set('coolBlue', 'rgb(77, 102, 156)');
 
   colorMap.set('warmRed', 'rgb(145, 0, 0)');
