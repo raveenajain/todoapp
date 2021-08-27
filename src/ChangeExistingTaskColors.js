@@ -24,15 +24,22 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
   const warmGolden = globalColors('warmGolden');
   const warmYellow = globalColors('warmYellow');
 
+  let lastClassic = 'classicRed';
+  let lastExtreme = 'extremeRed';
+  let lastCool = 'coolPurple';
+  let lastWarm = 'warmRed';
 
   const taskList = document.getElementById('tasks').children;
   for (let i = 0; i < taskList.length; i++) {
     let curTask = taskList[i];
     let curBottom = curTask.style.borderBottomColor;
     let curDecor = curTask.style.textDecorationColor;
+
     // classic to new
     if (prevTheme === 'classic') {
       if (newTheme === 'extreme') {
+        document.getElementById('curColor').setAttribute('value', lastExtreme);
+        lastExtreme = document.getElementById('codeExtreme').getAttribute('value');
         if (curBottom === classicRed || curDecor === classicRed) {
           curTask.style.borderBottomColor = extremeRed;
           curTask.style.textDecorationColor = extremeRed;
@@ -44,6 +51,8 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
           curTask.style.textDecorationColor = extremeBlue;
         }
       } else if (newTheme === 'cool') {
+        document.getElementById('curColor').setAttribute('value', lastCool);
+        lastCool = document.getElementById('codeCool').getAttribute('value');
         if (curBottom === classicRed || curDecor === classicRed) {
           curTask.style.borderBottomColor = coolPurple;
           curTask.style.textDecorationColor = coolPurple;
@@ -55,6 +64,8 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
           curTask.style.textDecorationColor = coolBlue;
         }
       } else if (newTheme === 'warm') {
+        document.getElementById('curColor').setAttribute('value', lastWarm);
+        lastWarm = document.getElementById('codeWarm').getAttribute('value');
         if (curBottom === classicRed || curDecor === classicRed) {
           curTask.style.borderBottomColor = warmRed;
           curTask.style.textDecorationColor = warmRed;
@@ -69,6 +80,8 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
     // extreme to new
     } else if (prevTheme === 'extreme') {
       if (newTheme === 'classic') {
+        document.getElementById('curColor').setAttribute('value', lastClassic);
+        lastClassic = document.getElementById('codeClassic').getAttribute('value');
         if ((curBottom === extremeRed || curBottom === extremePink) || (curDecor === extremeRed || curDecor === extremePink)) {
           curTask.style.borderBottomColor = classicRed;
           curTask.style.textDecorationColor = classicRed;
@@ -80,6 +93,8 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
           curTask.style.textDecorationColor = classicBlue;
         }
       } else if (newTheme === 'cool') {
+        document.getElementById('curColor').setAttribute('value', lastCool);
+        lastCool = document.getElementById('codeCool').getAttribute('value');
         if ((curBottom === extremeRed || curBottom === extremePurple) || (curDecor === extremeRed || curDecor === extremePurple)) {
           curTask.style.borderBottomColor = coolPurple;
           curTask.style.textDecorationColor = coolPurple;
@@ -94,6 +109,8 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
           curTask.style.textDecorationColor = coolLightBlue;
         }
       } else if (newTheme === 'warm') {
+        document.getElementById('curColor').setAttribute('value', lastWarm);
+        lastWarm = document.getElementById('codeWarm').getAttribute('value');
         if ((curBottom === extremeRed || curBottom === extremePurple) || (curDecor === extremeRed || curDecor === extremePurple)) {
           curTask.style.borderBottomColor = warmRed;
           curTask.style.textDecorationColor = warmRed;
@@ -111,6 +128,8 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
     // cool to new
     } else if (prevTheme === 'cool') {
       if (newTheme === 'classic') {
+        document.getElementById('curColor').setAttribute('value', lastClassic);
+        lastClassic = document.getElementById('codeClassic').getAttribute('value');
         if (curBottom === coolPurple || curDecor === coolPurple) {
           curTask.style.borderBottomColor = classicRed;
           curTask.style.textDecorationColor = classicRed;
@@ -122,6 +141,8 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
           curTask.style.textDecorationColor = classicBlue;
         }
       } else if (newTheme === 'extreme') {
+        document.getElementById('curColor').setAttribute('value', lastExtreme);
+        lastExtreme = document.getElementById('codeExtreme').getAttribute('value');
         if (curBottom === coolPurple || curDecor === coolPurple) {
           curTask.style.borderBottomColor = extremePurple;
           curTask.style.textDecorationColor = extremePurple;
@@ -136,6 +157,8 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
           curTask.style.textDecorationColor = extremeBlue;
         }
       } else if (newTheme === 'warm') {
+        document.getElementById('curColor').setAttribute('value', lastWarm);
+        lastWarm = document.getElementById('codeWarm').getAttribute('value');
         if (curBottom === coolPurple || curDecor === coolPurple) {
           curTask.style.borderBottomColor = warmRed;
           curTask.style.textDecorationColor = warmRed;
@@ -153,6 +176,8 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
     // warm to new
     } else if (prevTheme === 'warm') {
       if (newTheme === 'classic') {
+        document.getElementById('curColor').setAttribute('value', lastClassic);
+        lastClassic = document.getElementById('codeClassic').getAttribute('value');
         if (curBottom === warmRed || curDecor === warmRed) {
           curTask.style.borderBottomColor = classicRed;
           curTask.style.textDecorationColor = classicRed;
@@ -164,6 +189,8 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
           curTask.style.textDecorationColor = classicYellow;
         }
       } else if (newTheme === 'extreme') {
+        document.getElementById('curColor').setAttribute('value', lastExtreme);
+        lastExtreme = document.getElementById('codeExtreme').getAttribute('value');
         if (curBottom === warmRed || curDecor === warmRed) {
           curTask.style.borderBottomColor = extremeRed;
           curTask.style.textDecorationColor = extremeRed;
@@ -178,6 +205,8 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
           curTask.style.textDecorationColor = extremeGreen;
         }
       } else if (newTheme === 'cool') {
+        document.getElementById('curColor').setAttribute('value', lastCool);
+        lastCool = document.getElementById('codeCool').getAttribute('value');
         if (curBottom === warmRed || curDecor === warmRed) {
           curTask.style.borderBottomColor = coolPurple;
           curTask.style.textDecorationColor = coolPurple;

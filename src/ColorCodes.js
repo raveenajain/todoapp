@@ -33,11 +33,41 @@ function ColorCodes() {
     setCode(event.target.value);
   }
 
+  // only sets the value if its one of the color options for the selected theme
+  function setClassicCode(c) {
+    if (c === 'classicRed' || c === 'classicBlue' || c === 'classicYellow') {
+      return c;
+    } else {
+      return 'classicRed';
+    }
+  }
+  function setExtremeCode(c) {
+    if (c === 'extremeRed' || c === 'extremeBlue' || c === 'extremePink' || c === 'extremeGreen' || c === 'extremeOrange' || c === 'extremePurple') {
+      return c;
+    } else {
+      return 'extremePurple';
+    }
+  }
+  function setCoolCode(c) {
+    if (c === 'coolLightBlue' || c === 'coolBlue' || c === 'coolPurple' || c === 'coolLightPurple') {
+      return c;
+    } else {
+      return 'coolPurple';
+    }
+  }
+  function setWarmCode(c) {
+    if (c === 'warmRed' || c === 'warmGolden' || c === 'warmOrange' || c === 'warmYellow') {
+      return c;
+    } else {
+      return 'warmRed';
+    }
+  }
+
   return (
     <div className="ColorCodes">
       <div id="curColor" value={code}>
 
-        <div id="codeClassic" style={{display: "none"}}>
+        <div id="codeClassic" style={{display: "none"}} value={setClassicCode(code)}>
           <select value={code} name="code" onChange={handleChange}>
             <option value="classicRed">Red</option>
             <option value="classicYellow">Yellow</option>
@@ -45,7 +75,7 @@ function ColorCodes() {
           </select>
         </div>
 
-        <div id="codeExtreme" style={{display: "none"}}>
+        <div id="codeExtreme" style={{display: "none"}} value={setExtremeCode(code)}>
           <select value={code} name="code" onChange={handleChange}>
             <option value="extremeRed">Red</option>
             <option value="extremeOrange">Orange</option>
@@ -56,7 +86,7 @@ function ColorCodes() {
           </select>
         </div>
 
-        <div id="codeCool" style={{display: "none"}}>
+        <div id="codeCool" style={{display: "none"}} value={setCoolCode(code)}>
           <select value={code} name="code" onChange={handleChange}>
             <option value="coolPurple">Purple</option>
             <option value="coolLightPurple">Light Purple</option>
@@ -65,7 +95,7 @@ function ColorCodes() {
           </select>
         </div>
 
-        <div id="codeWarm" style={{display: "none"}}>
+        <div id="codeWarm" style={{display: "none"}} value={setWarmCode(code)}>
           <select value={code} name="code" onChange={handleChange}>
             <option value="warmRed">Red</option>
             <option value="warmOrange">Orange</option>
