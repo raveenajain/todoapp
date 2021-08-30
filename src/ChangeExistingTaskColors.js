@@ -32,8 +32,8 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
   const taskList = document.getElementById('tasks').children;
   for (let i = 0; i < taskList.length; i++) {
     let curTask = taskList[i];
-    let curBottom = curTask.style.borderBottomColor;
-    let curDecor = curTask.style.textDecorationColor;
+    let curBottom = curTask.children[1].style.borderBottomColor;
+    let curDecor = curTask.children[1].style.textDecorationColor;
 
     // classic to new
     if (prevTheme === 'classic') {
@@ -41,40 +41,40 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
         document.getElementById('curColor').setAttribute('value', lastExtreme);
         lastExtreme = document.getElementById('codeExtreme').getAttribute('value');
         if (curBottom === classicRed || curDecor === classicRed) {
-          curTask.style.borderBottomColor = extremeRed;
-          curTask.style.textDecorationColor = extremeRed;
+          curTask.children[1].style.borderBottomColor = extremeRed;
+          curTask.children[1].style.textDecorationColor = extremeRed;
         } else if (curBottom === classicYellow || curDecor === classicYellow) {
-          curTask.style.borderBottomColor = extremeOrange;
-          curTask.style.textDecorationColor = extremeOrange;
+          curTask.children[1].style.borderBottomColor = extremeOrange;
+          curTask.children[1].style.textDecorationColor = extremeOrange;
         } else if (curBottom === classicBlue || curDecor === classicBlue) {
-          curTask.style.borderBottomColor = extremeBlue;
-          curTask.style.textDecorationColor = extremeBlue;
+          curTask.children[1].style.borderBottomColor = extremeBlue;
+          curTask.children[1].style.textDecorationColor = extremeBlue;
         }
       } else if (newTheme === 'cool') {
         document.getElementById('curColor').setAttribute('value', lastCool);
         lastCool = document.getElementById('codeCool').getAttribute('value');
         if (curBottom === classicRed || curDecor === classicRed) {
-          curTask.style.borderBottomColor = coolPurple;
-          curTask.style.textDecorationColor = coolPurple;
+          curTask.children[1].style.borderBottomColor = coolPurple;
+          curTask.children[1].style.textDecorationColor = coolPurple;
         } else if (curBottom === classicYellow || curDecor === classicYellow) {
-          curTask.style.borderBottomColor = coolLightBlue;
-          curTask.style.textDecorationColor = coolLightBlue;
+          curTask.children[1].style.borderBottomColor = coolLightBlue;
+          curTask.children[1].style.textDecorationColor = coolLightBlue;
         } else if (curBottom === classicBlue || curDecor === classicBlue) {
-          curTask.style.borderBottomColor = coolBlue;
-          curTask.style.textDecorationColor = coolBlue;
+          curTask.children[1].style.borderBottomColor = coolBlue;
+          curTask.children[1].style.textDecorationColor = coolBlue;
         }
       } else if (newTheme === 'warm') {
         document.getElementById('curColor').setAttribute('value', lastWarm);
         lastWarm = document.getElementById('codeWarm').getAttribute('value');
         if (curBottom === classicRed || curDecor === classicRed) {
-          curTask.style.borderBottomColor = warmRed;
-          curTask.style.textDecorationColor = warmRed;
+          curTask.children[1].style.borderBottomColor = warmRed;
+          curTask.children[1].style.textDecorationColor = warmRed;
         } else if (curBottom === classicYellow || curDecor === classicYellow) {
-          curTask.style.borderBottomColor = warmYellow;
-          curTask.style.textDecorationColor = warmYellow;
+          curTask.children[1].style.borderBottomColor = warmYellow;
+          curTask.children[1].style.textDecorationColor = warmYellow;
         } else if (curBottom === classicBlue || curDecor === classicBlue) {
-          curTask.style.borderBottomColor = warmOrange;
-          curTask.style.textDecorationColor = warmOrange;
+          curTask.children[1].style.borderBottomColor = warmOrange;
+          curTask.children[1].style.textDecorationColor = warmOrange;
         }
       }
     // extreme to new
@@ -83,46 +83,46 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
         document.getElementById('curColor').setAttribute('value', lastClassic);
         lastClassic = document.getElementById('codeClassic').getAttribute('value');
         if ((curBottom === extremeRed || curBottom === extremePink) || (curDecor === extremeRed || curDecor === extremePink)) {
-          curTask.style.borderBottomColor = classicRed;
-          curTask.style.textDecorationColor = classicRed;
+          curTask.children[1].style.borderBottomColor = classicRed;
+          curTask.children[1].style.textDecorationColor = classicRed;
         } else if ((curBottom === extremeOrange || curBottom === extremeGreen) || (curDecor === extremeOrange || curDecor === extremeGreen)) {
-          curTask.style.borderBottomColor = classicYellow;
-          curTask.style.textDecorationColor = classicYellow;
+          curTask.children[1].style.borderBottomColor = classicYellow;
+          curTask.children[1].style.textDecorationColor = classicYellow;
         } else if ((curBottom === extremePurple || curBottom === extremeBlue) || (curDecor === extremePurple || curDecor === extremeBlue)) {
-          curTask.style.borderBottomColor = classicBlue;
-          curTask.style.textDecorationColor = classicBlue;
+          curTask.children[1].style.borderBottomColor = classicBlue;
+          curTask.children[1].style.textDecorationColor = classicBlue;
         }
       } else if (newTheme === 'cool') {
         document.getElementById('curColor').setAttribute('value', lastCool);
         lastCool = document.getElementById('codeCool').getAttribute('value');
         if ((curBottom === extremeRed || curBottom === extremePurple) || (curDecor === extremeRed || curDecor === extremePurple)) {
-          curTask.style.borderBottomColor = coolPurple;
-          curTask.style.textDecorationColor = coolPurple;
+          curTask.children[1].style.borderBottomColor = coolPurple;
+          curTask.children[1].style.textDecorationColor = coolPurple;
         } else if ((curBottom === extremeOrange || curBottom === extremePink) || (curDecor === extremeOrange || curDecor === extremePink)) {
-          curTask.style.borderBottomColor = coolLightPurple;
-          curTask.style.textDecorationColor = coolLightPurple;
+          curTask.children[1].style.borderBottomColor = coolLightPurple;
+          curTask.children[1].style.textDecorationColor = coolLightPurple;
         } else if (curBottom === extremeBlue || curDecor === extremeBlue) {
-          curTask.style.borderBottomColor = coolBlue;
-          curTask.style.textDecorationColor = coolBlue;
+          curTask.children[1].style.borderBottomColor = coolBlue;
+          curTask.children[1].style.textDecorationColor = coolBlue;
         } else if (curBottom === extremeGreen || curDecor === extremeGreen) {
-          curTask.style.borderBottomColor = coolLightBlue;
-          curTask.style.textDecorationColor = coolLightBlue;
+          curTask.children[1].style.borderBottomColor = coolLightBlue;
+          curTask.children[1].style.textDecorationColor = coolLightBlue;
         }
       } else if (newTheme === 'warm') {
         document.getElementById('curColor').setAttribute('value', lastWarm);
         lastWarm = document.getElementById('codeWarm').getAttribute('value');
         if ((curBottom === extremeRed || curBottom === extremePurple) || (curDecor === extremeRed || curDecor === extremePurple)) {
-          curTask.style.borderBottomColor = warmRed;
-          curTask.style.textDecorationColor = warmRed;
+          curTask.children[1].style.borderBottomColor = warmRed;
+          curTask.children[1].style.textDecorationColor = warmRed;
         } else if (curBottom === extremeOrange || curDecor === extremeOrange) {
-          curTask.style.borderBottomColor = warmOrange;
-          curTask.style.textDecorationColor = warmOrange;
+          curTask.children[1].style.borderBottomColor = warmOrange;
+          curTask.children[1].style.textDecorationColor = warmOrange;
         } else if ((curBottom === extremePink || curBottom === extremeBlue) || (curDecor === extremePink || curDecor === extremeBlue)) {
-          curTask.style.borderBottomColor = warmGolden;
-          curTask.style.textDecorationColor = warmGolden;
+          curTask.children[1].style.borderBottomColor = warmGolden;
+          curTask.children[1].style.textDecorationColor = warmGolden;
         } else if (curBottom === extremeGreen || curDecor === extremeGreen) {
-          curTask.style.borderBottomColor = warmYellow;
-          curTask.style.textDecorationColor = warmYellow;
+          curTask.children[1].style.borderBottomColor = warmYellow;
+          curTask.children[1].style.textDecorationColor = warmYellow;
         }
       }
     // cool to new
@@ -131,46 +131,46 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
         document.getElementById('curColor').setAttribute('value', lastClassic);
         lastClassic = document.getElementById('codeClassic').getAttribute('value');
         if (curBottom === coolPurple || curDecor === coolPurple) {
-          curTask.style.borderBottomColor = classicRed;
-          curTask.style.textDecorationColor = classicRed;
+          curTask.children[1].style.borderBottomColor = classicRed;
+          curTask.children[1].style.textDecorationColor = classicRed;
         } else if ((curBottom === coolLightBlue || curBottom === coolLightPurple) || (curDecor === coolLightBlue || curDecor === coolLightPurple)) {
-          curTask.style.borderBottomColor = classicYellow;
-          curTask.style.textDecorationColor = classicYellow;
+          curTask.children[1].style.borderBottomColor = classicYellow;
+          curTask.children[1].style.textDecorationColor = classicYellow;
         } else if (curBottom === coolBlue || curDecor === coolBlue) {
-          curTask.style.borderBottomColor = classicBlue;
-          curTask.style.textDecorationColor = classicBlue;
+          curTask.children[1].style.borderBottomColor = classicBlue;
+          curTask.children[1].style.textDecorationColor = classicBlue;
         }
       } else if (newTheme === 'extreme') {
         document.getElementById('curColor').setAttribute('value', lastExtreme);
         lastExtreme = document.getElementById('codeExtreme').getAttribute('value');
         if (curBottom === coolPurple || curDecor === coolPurple) {
-          curTask.style.borderBottomColor = extremePurple;
-          curTask.style.textDecorationColor = extremePurple;
+          curTask.children[1].style.borderBottomColor = extremePurple;
+          curTask.children[1].style.textDecorationColor = extremePurple;
         } else if (curBottom === coolLightBlue || curDecor === coolLightBlue) {
-          curTask.style.borderBottomColor = extremeGreen;
-          curTask.style.textDecorationColor = extremeGreen;
+          curTask.children[1].style.borderBottomColor = extremeGreen;
+          curTask.children[1].style.textDecorationColor = extremeGreen;
         } else if (curBottom === coolLightPurple || curDecor === coolLightPurple) {
-          curTask.style.borderBottomColor = extremePink;
-          curTask.style.textDecorationColor = extremePink;
+          curTask.children[1].style.borderBottomColor = extremePink;
+          curTask.children[1].style.textDecorationColor = extremePink;
         } else if (curBottom === coolBlue || curDecor === coolBlue) {
-          curTask.style.borderBottomColor = extremeBlue;
-          curTask.style.textDecorationColor = extremeBlue;
+          curTask.children[1].style.borderBottomColor = extremeBlue;
+          curTask.children[1].style.textDecorationColor = extremeBlue;
         }
       } else if (newTheme === 'warm') {
         document.getElementById('curColor').setAttribute('value', lastWarm);
         lastWarm = document.getElementById('codeWarm').getAttribute('value');
         if (curBottom === coolPurple || curDecor === coolPurple) {
-          curTask.style.borderBottomColor = warmRed;
-          curTask.style.textDecorationColor = warmRed;
+          curTask.children[1].style.borderBottomColor = warmRed;
+          curTask.children[1].style.textDecorationColor = warmRed;
         } else if (curBottom === coolLightBlue || curDecor === coolLightBlue) {
-          curTask.style.borderBottomColor = warmGolden;
-          curTask.style.textDecorationColor = warmGolden;
+          curTask.children[1].style.borderBottomColor = warmGolden;
+          curTask.children[1].style.textDecorationColor = warmGolden;
         } else if (curBottom === coolLightPurple || curDecor === coolLightPurple) {
-          curTask.style.borderBottomColor = warmYellow;
-          curTask.style.textDecorationColor = warmYellow;
+          curTask.children[1].style.borderBottomColor = warmYellow;
+          curTask.children[1].style.textDecorationColor = warmYellow;
         } else if (curBottom === coolBlue || curDecor === coolBlue) {
-          curTask.style.borderBottomColor = warmOrange;
-          curTask.style.textDecorationColor = warmOrange;
+          curTask.children[1].style.borderBottomColor = warmOrange;
+          curTask.children[1].style.textDecorationColor = warmOrange;
         }
       }
     // warm to new
@@ -179,46 +179,46 @@ const changeExistingTaskColors = function(prevTheme, newTheme) {
         document.getElementById('curColor').setAttribute('value', lastClassic);
         lastClassic = document.getElementById('codeClassic').getAttribute('value');
         if (curBottom === warmRed || curDecor === warmRed) {
-          curTask.style.borderBottomColor = classicRed;
-          curTask.style.textDecorationColor = classicRed;
+          curTask.children[1].style.borderBottomColor = classicRed;
+          curTask.children[1].style.textDecorationColor = classicRed;
         } else if (curBottom === warmOrange || curDecor === warmOrange) {
-          curTask.style.borderBottomColor = classicBlue;
-          curTask.style.textDecorationColor = classicBlue;
+          curTask.children[1].style.borderBottomColor = classicBlue;
+          curTask.children[1].style.textDecorationColor = classicBlue;
         } else if ((curBottom === warmGolden || curBottom === warmYellow) || (curDecor === warmGolden || curDecor === warmYellow)) {
-          curTask.style.borderBottomColor = classicYellow;
-          curTask.style.textDecorationColor = classicYellow;
+          curTask.children[1].style.borderBottomColor = classicYellow;
+          curTask.children[1].style.textDecorationColor = classicYellow;
         }
       } else if (newTheme === 'extreme') {
         document.getElementById('curColor').setAttribute('value', lastExtreme);
         lastExtreme = document.getElementById('codeExtreme').getAttribute('value');
         if (curBottom === warmRed || curDecor === warmRed) {
-          curTask.style.borderBottomColor = extremeRed;
-          curTask.style.textDecorationColor = extremeRed;
+          curTask.children[1].style.borderBottomColor = extremeRed;
+          curTask.children[1].style.textDecorationColor = extremeRed;
         } else if (curBottom === warmOrange || curDecor === warmOrange) {
-          curTask.style.borderBottomColor = extremeOrange;
-          curTask.style.textDecorationColor = extremeOrange;
+          curTask.children[1].style.borderBottomColor = extremeOrange;
+          curTask.children[1].style.textDecorationColor = extremeOrange;
         } else if (curBottom === warmGolden || curDecor === warmGolden) {
-          curTask.style.borderBottomColor = extremePink;
-          curTask.style.textDecorationColor = extremePink;
+          curTask.children[1].style.borderBottomColor = extremePink;
+          curTask.children[1].style.textDecorationColor = extremePink;
         } else if (curBottom === warmYellow || curDecor === warmYellow) {
-          curTask.style.borderBottomColor = extremeGreen;
-          curTask.style.textDecorationColor = extremeGreen;
+          curTask.children[1].style.borderBottomColor = extremeGreen;
+          curTask.children[1].style.textDecorationColor = extremeGreen;
         }
       } else if (newTheme === 'cool') {
         document.getElementById('curColor').setAttribute('value', lastCool);
         lastCool = document.getElementById('codeCool').getAttribute('value');
         if (curBottom === warmRed || curDecor === warmRed) {
-          curTask.style.borderBottomColor = coolPurple;
-          curTask.style.textDecorationColor = coolPurple;
+          curTask.children[1].style.borderBottomColor = coolPurple;
+          curTask.children[1].style.textDecorationColor = coolPurple;
         } else if (curBottom === warmOrange || curDecor === warmOrange) {
-          curTask.style.borderBottomColor = coolBlue;
-          curTask.style.textDecorationColor = coolBlue;
+          curTask.children[1].style.borderBottomColor = coolBlue;
+          curTask.children[1].style.textDecorationColor = coolBlue;
         } else if (curBottom === warmGolden || curDecor === warmGolden) {
-          curTask.style.borderBottomColor = coolLightBlue;
-          curTask.style.textDecorationColor = coolLightBlue;
+          curTask.children[1].style.borderBottomColor = coolLightBlue;
+          curTask.children[1].style.textDecorationColor = coolLightBlue;
         } else if (curBottom === warmYellow || curDecor === warmYellow) {
-          curTask.style.borderBottomColor = coolLightPurple;
-          curTask.style.textDecorationColor = coolLightPurple;
+          curTask.children[1].style.borderBottomColor = coolLightPurple;
+          curTask.children[1].style.textDecorationColor = coolLightPurple;
         }
       }
     }

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './style.css';
 import ColorCodes from './ColorCodes';
 import globalColors from './GlobalColors';
@@ -12,6 +12,12 @@ function AddTasks() {
   function handleChange(event) {
     setTaskValue(event.target.value);
   }
+
+  // adjusts the height of the grey background of the popup to cover the whole
+  // window as more tasks (and scrolling) are added
+  useEffect(() => {
+    document.getElementById('popupGrey').style.height = document.documentElement.scrollHeight + 'px';
+  });
 
   // makes pop up window visible
   function openAddWindow() {
@@ -35,18 +41,20 @@ function AddTasks() {
     setTaskCounter(tempTaskCounter);
     // create label element
     let newLabel = document.createElement('label');
-    newLabel.id = taskValue + taskCounter;
-    newLabel.style.borderBottom = labelStyle;
-    newLabel.style.borderBottomColor = translateColor();
+    newLabel.id = "label" + taskCounter;
     // create input element
     let newInput = document.createElement('input');
     newInput.id = "input" + taskValue + taskCounter;
     newInput.type = 'checkbox';
     // create task div text element
     let newTaskDiv = document.createElement('div');
-    newTaskDiv.id = 'taskText'; // styling in .css file
+    newTaskDiv.id = taskValue + taskCounter;
+    newTaskDiv.style.display = 'block';
+    newTaskDiv.style.textAlign = 'left';
     newTaskDiv.innerHTML = taskValue;
     newTaskDiv.style.display = 'inline';
+    newTaskDiv.style.borderBottom = labelStyle;
+    newTaskDiv.style.borderBottomColor = translateColor();
     // create line break element
     let brk = document.createElement('br');
     // append all elements
@@ -62,21 +70,20 @@ function AddTasks() {
   // adds a strikethrough or line under task depending on if task is checked/completed
   function needStrikethrough(event) {
     const input = event.target;
-    const labelID = input.id.substring(5); // remove chars 'input' from "input" + taskValue id
-    let curLabel = document.getElementById(labelID);
-    let labelText = curLabel.children[1];
-    let borderColor = curLabel.style.borderBottomColor;
-    let decorationColor = curLabel.style.textDecorationColor;
+    const textID = input.id.substring(5); // remove chars 'input' from "input" + taskValue id
+    let curText = document.getElementById(textID);
+    let borderColor = curText.style.borderBottomColor;
+    let decorationColor = curText.style.textDecorationColor;
     if (input.checked) {
-      curLabel.style.borderBottom = '0px';
-      curLabel.style.textDecoration = 'line-through';
-      curLabel.style.textDecorationColor = borderColor;
-      labelText.style.color = 'rgba(0, 0, 0, 0.5)';
+      curText.style.borderBottom = '0px';
+      curText.style.textDecoration = 'line-through';
+      curText.style.textDecorationColor = borderColor;
+      curText.style.color = 'rgba(0, 0, 0, 0.5)';
     } else {
-      curLabel.style.borderBottom = labelStyle;
-      curLabel.style.borderBottomColor = decorationColor;
-      curLabel.style.textDecoration = 'none';
-      labelText.style.color = 'rgba(0, 0, 0, 1)';
+      curText.style.borderBottom = labelStyle;
+      curText.style.borderBottomColor = decorationColor;
+      curText.style.textDecoration = 'none';
+      curText.style.color = 'rgba(0, 0, 0, 1)';
     }
   }
 
@@ -139,6 +146,7 @@ function AddTasks() {
     return resultingColor;
   }
 
+
   return (
     <div className="AddTasks">
 
@@ -152,7 +160,7 @@ function AddTasks() {
           <div id="close" onClick={closeAddWindow}>X</div>
           <center>
             <div id="questions">What do you need to do?</div>
-            <textarea value={taskValue} onChange={handleChange}></textarea>
+            <textarea value={taskValue} maxLength="200" onChange={handleChange}></textarea>
             <div id="questions">How would you like to color code your task?</div>
             {/* dropdown */}
             <ColorCodes />
