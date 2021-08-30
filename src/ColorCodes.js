@@ -45,7 +45,7 @@ function ColorCodes() {
     if (c === 'extremeRed' || c === 'extremeBlue' || c === 'extremePink' || c === 'extremeGreen' || c === 'extremeOrange' || c === 'extremePurple') {
       return c;
     } else {
-      return 'extremePurple';
+      return 'extremeRed';
     }
   }
   function setCoolCode(c) {
