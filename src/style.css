@@ -1,11 +1,14 @@
 body {
   margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 
 
 /* themes.js */
 #header {
   font-size: 100px;
+  font-weight: 400;
   color: white;
   text-align: center;
   padding-top: 20px;
@@ -17,7 +20,7 @@ body {
 #theme {
   margin-right: 30px;
   margin-top: 185px;
-  font-size: 20px;
+  font-size: 18px;
   position: absolute;
   right: 0;
 }
@@ -42,6 +45,7 @@ body {
   box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
   font-size: 20px;
   border: 0.5px solid black;
+  cursor: pointer;
 }
 
 #popupGrey {
@@ -75,6 +79,7 @@ body {
 #questions {
   width: 100%;
   margin-top: 35px;
+  font-weight: 400;
 }
 
 textarea {
@@ -92,11 +97,12 @@ textarea {
   box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
   border: 0.5px solid black;
   margin-top: 35px;
+  cursor: pointer;
 }
 
 #tasks {
   margin-top: 50px;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 40px;
   margin-left: 75px;
   margin-right: 75px;

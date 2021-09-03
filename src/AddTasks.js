@@ -30,41 +30,69 @@ function AddTasks() {
     setTaskValue("");
   }
 
+  // change shadow when hovering over button
+  function buttonHover(buttonID) {
+    if (document.getElementById(buttonID) != null) {
+      document.getElementById(buttonID).style.boxShadow = 'inset 0px 0px 3px rgba(0, 0, 0, 0.75)';
+    }
+  }
+
+  // revert shadow when not hovering over button
+  function leaveButton(buttonID) {
+    if (document.getElementById(buttonID) != null) {
+      document.getElementById(buttonID).style.boxShadow = '2px 4px 5px rgba(0, 0, 0, 0.25)';
+    }
+  }
+
   // adds a label and input checkbox element to the form i.e. adds the users task
   function addTask() {
-    // remove pop up window and init text
-    setIsVisible("none");
-    document.getElementById('noTasks').style.display = "none";
-    // add to task counter
-    let tempTaskCounter = taskCounter;
-    tempTaskCounter++;
-    setTaskCounter(tempTaskCounter);
-    // create label element
-    let newLabel = document.createElement('label');
-    newLabel.id = "label" + taskCounter;
-    // create input element
-    let newInput = document.createElement('input');
-    newInput.id = "input" + taskValue + taskCounter;
-    newInput.type = 'checkbox';
-    // create task div text element
-    let newTaskDiv = document.createElement('div');
-    newTaskDiv.id = taskValue + taskCounter;
-    newTaskDiv.style.display = 'block';
-    newTaskDiv.style.textAlign = 'left';
-    newTaskDiv.innerHTML = taskValue;
-    newTaskDiv.style.display = 'inline';
-    newTaskDiv.style.borderBottom = labelStyle;
-    newTaskDiv.style.borderBottomColor = translateColor();
-    // create line break element
-    let brk = document.createElement('br');
-    // append all elements
-    newLabel.appendChild(newInput);
-    newLabel.appendChild(newTaskDiv);
-    newLabel.appendChild(brk);
-    document.getElementById('tasks').appendChild(newLabel);
-    document.getElementById('input' + taskValue + taskCounter).addEventListener('change', needStrikethrough);
-    // reset task value for pop up window
-    setTaskValue("");
+    // do not let user add task with no text
+    if (taskValue.trim().length === 0) {
+      let red = 255;
+      let opacity = 0.75;
+      setInterval(function() {
+        if (red > 0) {
+          document.getElementsByTagName('textarea')[0].style.border = '1px solid rgb(' + red + ', 0, 0)';
+          document.getElementsByTagName('textarea')[0].style.boxShadow = '0px 0px 4px rgba(255, 0, 0,' + opacity + ')';
+        }
+        red = red - 5;
+        opacity = opacity - 0.05;
+      }, 100)
+    } else {
+      // remove pop up window and init text
+      setIsVisible("none");
+      document.getElementById('noTasks').style.display = "none";
+      // add to task counter
+      let tempTaskCounter = taskCounter;
+      tempTaskCounter++;
+      setTaskCounter(tempTaskCounter);
+      // create label element
+      let newLabel = document.createElement('label');
+      newLabel.id = "label" + taskCounter;
+      // create input element
+      let newInput = document.createElement('input');
+      newInput.id = "input" + taskValue + taskCounter;
+      newInput.type = 'checkbox';
+      // create task div text element
+      let newTaskDiv = document.createElement('div');
+      newTaskDiv.id = taskValue + taskCounter;
+      newTaskDiv.style.display = 'block';
+      newTaskDiv.style.textAlign = 'left';
+      newTaskDiv.innerHTML = taskValue;
+      newTaskDiv.style.display = 'inline';
+      newTaskDiv.style.borderBottom = labelStyle;
+      newTaskDiv.style.borderBottomColor = translateColor();
+      // create line break element
+      let brk = document.createElement('br');
+      // append all elements
+      newLabel.appendChild(newInput);
+      newLabel.appendChild(newTaskDiv);
+      newLabel.appendChild(brk);
+      document.getElementById('tasks').appendChild(newLabel);
+      document.getElementById('input' + taskValue + taskCounter).addEventListener('change', needStrikethrough);
+      // reset task value for pop up window
+      setTaskValue("");
+    }
   }
 
   // adds a strikethrough or line under task depending on if task is checked/completed
@@ -164,15 +192,14 @@ function AddTasks() {
             <div id="questions">How would you like to color code your task?</div>
             {/* dropdown */}
             <ColorCodes />
-            <button id="addButton" onClick={addTask}>Add</button>
+            <button id="addButton" onMouseEnter={() => buttonHover('addButton')} onMouseLeave={() => leaveButton('addButton')} onClick={addTask}>Add</button>
           </center>
         </div>
       </div>
 
 
       {/* add task button */}
-      <button id="plusButton" onClick={openAddWindow}>+</button>
-
+      <button id="plusButton" onMouseEnter={() => buttonHover('plusButton')} onMouseLeave={() => leaveButton('plusButton')} onClick={openAddWindow}>+</button>
 
       {/* added tasks */}
       <div className="TaskList">
