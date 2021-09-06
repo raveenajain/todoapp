@@ -23,6 +23,10 @@ const globalColors = function(color) {
   colorMap.set('warmGolden', 'rgb(232, 178, 0)');
   colorMap.set('warmYellow', 'rgb(237, 220, 121)');
 
+  colorMap.set('linesPurple', 'rgb(189, 66, 255)'); // linesSolid
+  colorMap.set('linesRed', 'rgb(255, 66, 66)'); // linesDot
+  colorMap.set('linesYellow', 'rgb(232, 178, 0)'); // linesDouble
+
   return colorMap.get(color);
 }
 

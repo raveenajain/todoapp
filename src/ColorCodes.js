@@ -11,21 +11,31 @@ function ColorCodes() {
       document.getElementById('codeExtreme').style.display = "none";
       document.getElementById('codeCool').style.display = "none";
       document.getElementById('codeWarm').style.display = "none";
+      document.getElementById('codeLines').style.display = "none";
     } else if (document.getElementById('theme').getAttribute('value') === "extreme") {
       document.getElementById('codeClassic').style.display = "none";
       document.getElementById('codeExtreme').style.display = "block";
       document.getElementById('codeCool').style.display = "none";
       document.getElementById('codeWarm').style.display = "none";
+      document.getElementById('codeLines').style.display = "none";
     } else if (document.getElementById('theme').getAttribute('value') === "cool") {
       document.getElementById('codeClassic').style.display = "none";
       document.getElementById('codeExtreme').style.display = "none";
       document.getElementById('codeCool').style.display = "block";
       document.getElementById('codeWarm').style.display = "none";
+      document.getElementById('codeLines').style.display = "none";
     } else if (document.getElementById('theme').getAttribute('value') === "warm") {
       document.getElementById('codeClassic').style.display = "none";
       document.getElementById('codeExtreme').style.display = "none";
       document.getElementById('codeCool').style.display = "none";
       document.getElementById('codeWarm').style.display = "block";
+      document.getElementById('codeLines').style.display = "none";
+    } else if (document.getElementById('theme').getAttribute('value') === "lines") {
+      document.getElementById('codeClassic').style.display = "none";
+      document.getElementById('codeExtreme').style.display = "none";
+      document.getElementById('codeCool').style.display = "none";
+      document.getElementById('codeWarm').style.display = "none";
+      document.getElementById('codeLines').style.display = "block";
     }
   });
 
@@ -60,6 +70,13 @@ function ColorCodes() {
       return c;
     } else {
       return 'warmRed';
+    }
+  }
+  function setLinesCode(c) {
+    if (c === 'linesSolid' || c === 'linesDouble' || c === 'linesDot') {
+      return c;
+    } else {
+      return 'linesSolid';
     }
   }
 
@@ -101,6 +118,14 @@ function ColorCodes() {
             <option value="warmOrange">Orange</option>
             <option value="warmGolden">Golden</option>
             <option value="warmYellow">Yellow</option>
+          </select>
+        </div>
+
+        <div id="codeLines" style={{display: "none"}} value={setLinesCode(code)}>
+          <select value={code} name="code" onChange={handleChange}>
+            <option value="linesSolid">Solid</option>
+            <option value="linesDouble">Double</option>
+            <option value="linesDot">Dot</option>
           </select>
         </div>
 

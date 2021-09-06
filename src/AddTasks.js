@@ -7,7 +7,6 @@ function AddTasks() {
   const[isVisible, setIsVisible] = useState("none");
   const[taskValue, setTaskValue] = useState("");
   const[taskCounter, setTaskCounter] = useState(0); // to deal with edge case of repeat tasks
-  const[labelStyle] = useState('3px solid');
 
   function handleChange(event) {
     setTaskValue(event.target.value);
@@ -80,7 +79,7 @@ function AddTasks() {
       newTaskDiv.style.textAlign = 'left';
       newTaskDiv.innerHTML = taskValue;
       newTaskDiv.style.display = 'inline';
-      newTaskDiv.style.borderBottom = labelStyle;
+      newTaskDiv.style.borderBottom = translateLabelStyle();
       newTaskDiv.style.borderBottomColor = translateColor();
       // create line break element
       let brk = document.createElement('br');
@@ -101,14 +100,16 @@ function AddTasks() {
     const textID = input.id.substring(5); // remove chars 'input' from "input" + taskValue id
     let curText = document.getElementById(textID);
     let borderColor = curText.style.borderBottomColor;
+    let borderStyle = curText.style.borderBottomStyle;
     let decorationColor = curText.style.textDecorationColor;
     if (input.checked) {
-      curText.style.borderBottom = '0px';
+      curText.style.borderBottomWidth = '0px';
       curText.style.textDecoration = 'line-through';
       curText.style.textDecorationColor = borderColor;
       curText.style.color = 'rgba(0, 0, 0, 0.5)';
     } else {
-      curText.style.borderBottom = labelStyle;
+      curText.style.borderBottomWidth = '3px';
+      curText.style.borderBottomStyle = borderStyle;
       curText.style.borderBottomColor = decorationColor;
       curText.style.textDecoration = 'none';
       curText.style.color = 'rgba(0, 0, 0, 1)';
@@ -130,6 +131,8 @@ function AddTasks() {
         code = "coolPurple";
       } else if (theme === "warm") {
         code = "warmRed";
+      } else if (theme === "lines") {
+        code = "linesSolid";
       }
     }
     // classic
@@ -170,8 +173,30 @@ function AddTasks() {
       resultingColor = globalColors('warmGolden');
     } else if (code === "warmYellow") {
       resultingColor = globalColors('warmYellow');
+    } // lines
+    else if (code === "linesSolid") {
+      resultingColor = globalColors('linesPurple');
+    } else if (code === "linesDouble") {
+      resultingColor = globalColors('linesYellow');
+    } else if (code === "linesDot") {
+      resultingColor = globalColors('linesRed');
     }
     return resultingColor;
+  }
+
+  // changes the label style for lines option
+  function translateLabelStyle() {
+    let resultingStyle = '3px solid';
+    let code = document.getElementById("curColor").getAttribute("value");
+    let theme = document.getElementById('theme').getAttribute('value');
+    if (theme === 'lines') {
+      if (code === 'linesDouble') {
+        resultingStyle = '3px double';
+      } else if (code === 'linesDot') {
+        resultingStyle = '3px dotted';
+      }
+    }
+    return resultingStyle;
   }
 
 

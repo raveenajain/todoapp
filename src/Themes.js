@@ -26,6 +26,8 @@ function Themes() {
       setHeaderBack("linear-gradient(90deg, " + globalColors('coolPurple') + "0%, " + globalColors('coolLightPurple') + "33%, " + globalColors('coolLightBlue') + "67%, " + globalColors('coolBlue') + "100%)");
     } else if (value === "warm") {
       setHeaderBack("linear-gradient(90deg, " + globalColors('warmRed') + "0%, " + globalColors('warmGolden') + "33%, " + globalColors('warmYellow') + "67%, " + globalColors('warmOrange') + "100%)");
+    } else if (value === "lines") {
+      setHeaderBack("linear-gradient(90deg, " + globalColors('linesPurple') + "3%, " + globalColors('linesRed') + "51%, " + globalColors('linesYellow') + "79%)");
     }
   }
 
@@ -44,6 +46,7 @@ function Themes() {
           <option value="extreme">Extreme</option>
           <option value="cool">Cool</option>
           <option value="warm">Warm</option>
+          <option value="lines">Lines</option>
         </select>
       </div>
 
